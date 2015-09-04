@@ -4,27 +4,26 @@ GCM Example Implementation in PHP and Bootstrap
 This is just a very basic server. You have to adjust it to your needs.
 
 
-The MySQL database tables used in this example.
-
+MySQL database tables used in this example.
 
 devices_types:
-+-------------+------------------+------+-----+---------+----------------+
-| Field       | Type             | Null | Key | Default | Extra          |
-+-------------+------------------+------+-----+---------+----------------+
-| id          | int(11) unsigned | NO   | PRI | NULL    | auto_increment |
-| name        | varchar(255)     | YES  |     | NULL    |                |
-| description | varchar(500)     | YES  |     |         |                |
-+-------------+------------------+------+-----+---------+----------------+
+
+CREATE TABLE `device_types` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(500) DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 
 devices:
-+-----------------+------------------+------+-----+---------+----------------+
-| Field           | Type             | Null | Key | Default | Extra          |
-+-----------------+------------------+------+-----+---------+----------------+
-| id              | int(11) unsigned | NO   | PRI | NULL    | auto_increment |
-| registration_id | varchar(255)     | YES  |     | NULL    |                |
-| device_type_id  | int(11) unsigned | YES  |     | NULL    |                |
-+-----------------+------------------+------+-----+---------+----------------+
+
+CREATE TABLE `devices` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `registration_id` varchar(255) DEFAULT NULL,
+  `device_type_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 
-Device Type can be 1=Android, 2=iOS, ... Whatever you think is helpful for you.
+Device Type could be: 1=Android, 2=iOS, ... Whatever you think is helpful for you.

@@ -1,5 +1,5 @@
 # gcm-server
-GCM Example Implementation in PHP and Bootstrap
+GCM Example Implementation in PHP and Bootstrap based on Google example code
 
 This is just a very basic server. You have to adjust it to your needs.
 
